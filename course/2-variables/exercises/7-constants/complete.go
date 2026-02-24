@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	const premiumPlanName = "Premium Plan"
 	const basicPlanName = "Basic Plan"
 

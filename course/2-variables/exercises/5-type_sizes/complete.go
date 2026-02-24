@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	accountAge := 2.6
 
 	// create a new "accountAgeInt" here

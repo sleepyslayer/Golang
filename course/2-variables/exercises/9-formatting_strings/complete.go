@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	const name = "Saul Goodman"
 	const openRate = 30.5
 

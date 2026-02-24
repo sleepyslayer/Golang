@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	var smsSendingLimit int
 	var costPerSMS float64
 	var hasPermission bool

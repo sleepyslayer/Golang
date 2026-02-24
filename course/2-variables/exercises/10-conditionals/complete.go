@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	messageLen := 10
 	maxMessageLen := 20
 	fmt.Println("Trying to send a message of length:", messageLen, "and a max length of:", maxMessageLen)

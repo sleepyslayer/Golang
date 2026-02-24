@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main1() {
 	const secondsInMinute = 60
 	const minutesInHour = 60
 	const secondsInHour = secondsInMinute * minutesInHour
