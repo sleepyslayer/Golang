@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func yearsUntilEvents(age int) (yearsUntilAdult, yearsUntilDrinking, yearsUntilCarRental int) {
+func yearsUntilEvents1(age int) (yearsUntilAdult, yearsUntilDrinking, yearsUntilCarRental int) {
 	yearsUntilAdult = 18 - age
 	if yearsUntilAdult < 0 {
 		yearsUntilAdult = 0
@@ -22,7 +22,7 @@ func yearsUntilEvents(age int) (yearsUntilAdult, yearsUntilDrinking, yearsUntilC
 
 // don't edit below this line
 
-func test(age int) {
+func test1(age int) {
 	fmt.Println("Age:", age)
 	yearsUntilAdult, yearsUntilDrinking, yearsUntilCarRental := yearsUntilEvents(age)
 	fmt.Println("You are an adult in", yearsUntilAdult, "years")
@@ -31,7 +31,7 @@ func test(age int) {
 	fmt.Println("====================================")
 }
 
-func main() {
+func main1() {
 	test(4)
 	test(10)
 	test(22)
