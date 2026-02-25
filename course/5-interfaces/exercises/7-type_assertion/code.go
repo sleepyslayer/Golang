@@ -5,28 +5,18 @@ import (
 )
 
 func getExpenseReport(e expense) (string, float64) {
-	// ?
+	if em, ok := e.(email); ok {
+		return em.toAddress, em.cost()
+	} else if sm, ok := e.(sms); ok {
+		return sm.toPhoneNumber, sm.cost()
+	} else if inv, ok := e.(invalid); ok {
+		return "", inv.cost()
+	} else {
+		return "", 0.0
+	}
 }
 
 // don't touch below this line
-
-func (e email) cost() float64 {
-	if !e.isSubscribed {
-		return float64(len(e.body)) * .05
-	}
-	return float64(len(e.body)) * .01
-}
-
-func (s sms) cost() float64 {
-	if !s.isSubscribed {
-		return float64(len(s.body)) * .1
-	}
-	return float64(len(s.body)) * .03
-}
-
-func (i invalid) cost() float64 {
-	return 0.0
-}
 
 type expense interface {
 	cost() float64
@@ -38,13 +28,31 @@ type email struct {
 	toAddress    string
 }
 
+func (e email) cost() float64 {
+	if !e.isSubscribed {
+		return float64(len(e.body)) * .05
+	}
+	return float64(len(e.body)) * .01
+}
+
 type sms struct {
 	isSubscribed  bool
 	body          string
 	toPhoneNumber string
 }
 
+func (s sms) cost() float64 {
+	if !s.isSubscribed {
+		return float64(len(s.body)) * .1
+	}
+	return float64(len(s.body)) * .03
+}
+
 type invalid struct{}
+
+func (i invalid) cost() float64 {
+	return 0.0
+}
 
 func estimateYearlyCost(e expense, averageMessagesPerYear int) float64 {
 	return e.cost() * float64(averageMessagesPerYear)

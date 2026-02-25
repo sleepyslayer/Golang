@@ -4,14 +4,6 @@ import (
 	"fmt"
 )
 
-func (e email) cost() float64 {
-	// ?
-}
-
-func (e email) print() {
-	// ?
-}
-
 // don't touch below this line
 
 type expense interface {
@@ -27,9 +19,21 @@ type email struct {
 	body         string
 }
 
-func print(p printer) {
-	p.print()
+func (e email) cost() float64 {
+	if e.isSubscribed {
+		return float64(len(e.body)) * 0.01
+	} else {
+		return float64(len(e.body)) * 0.05
+	}
 }
+
+func (e email) print() {
+	fmt.Printf("Printing email with body: %s\n", e.body)
+}
+
+// func print(p printer) {
+// 	p.print()
+// }
 
 func test(e expense, p printer) {
 	fmt.Printf("Printing with cost: $%.2f ...\n", e.cost())
