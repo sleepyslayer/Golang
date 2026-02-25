@@ -4,18 +4,18 @@ import (
 	"fmt"
 )
 
-type messageToSend struct {
+type messageToSend1 struct {
 	message   string
 	sender    user
 	recipient user
 }
 
-type user struct {
+type user1 struct {
 	name   string
 	number int
 }
 
-func canSendMessage(mToSend messageToSend) bool {
+func canSendMessage1(mToSend messageToSend) bool {
 	if mToSend.recipient.number == 0 {
 		return false
 	}
@@ -33,7 +33,7 @@ func canSendMessage(mToSend messageToSend) bool {
 
 // don't touch below this line
 
-func test(mToSend messageToSend) {
+func test1(mToSend messageToSend) {
 	fmt.Printf(`sending "%s" from %s (%v) to %s (%v)...`,
 		mToSend.message,
 		mToSend.sender.name,
@@ -50,7 +50,7 @@ func test(mToSend messageToSend) {
 	fmt.Println("====================================")
 }
 
-func main() {
+func main1() {
 	test(messageToSend{
 		message: "you have an appointment tommorow",
 		sender: user{

@@ -2,19 +2,19 @@ package main
 
 import "fmt"
 
-type messageToSend struct {
+type messageToSend1 struct {
 	phoneNumber int
 	message     string
 }
 
 // don't edit below this line
 
-func test(m messageToSend) {
+func test1(m messageToSend) {
 	fmt.Printf("Sending message: '%s' to: %v\n", m.message, m.phoneNumber)
 	fmt.Println("====================================")
 }
 
-func main() {
+func main1() {
 	test(messageToSend{
 		phoneNumber: 148255510981,
 		message:     "Thanks for signing up",
