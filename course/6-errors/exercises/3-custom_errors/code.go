@@ -8,7 +8,9 @@ type divideError struct {
 	dividend float64
 }
 
-// ?
+func (de divideError) Error() string {
+	return fmt.Sprintf("can not divide %.2f by zero", de.dividend)
+}
 
 // don't edit below this line
 
@@ -18,6 +20,7 @@ func divide(dividend, divisor float64) (float64, error) {
 		// as an error. As an error type, when it's printed its default value
 		// will be the result of the Error() method
 		return 0, divideError{dividend: dividend}
+		// return 0, fmt.Errorf("can not divide %.2f by zero", dividend)
 	}
 	return dividend / divisor, nil
 }
